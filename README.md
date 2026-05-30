@@ -38,6 +38,18 @@ git pull
 
 ## Configure StepFun For Codex CLI
 
+Important: recent Codex CLI versions no longer support `wire_api = "chat"`. They require `wire_api = "responses"` for custom providers. StepFun `step-3.7-flash` quickstart uses the Chat Completions endpoint, so direct Codex CLI integration may require either:
+
+- a StepFun endpoint that supports OpenAI Responses-compatible requests, or
+- a small local bridge that exposes `/v1/responses` to Codex and forwards requests to StepFun `/v1/chat/completions`.
+
+If you see this error, your Codex CLI is enforcing the new Responses-only provider path:
+
+```text
+Error loading config.toml: `wire_api = "chat"` is no longer supported.
+How to fix: set `wire_api = "responses"` in your provider config.
+```
+
 Open Codex config:
 
 ```powershell
@@ -52,7 +64,7 @@ Add:
 name = "StepFun"
 base_url = "https://api.stepfun.com/v1"
 env_key = "STEPFUN_API_KEY"
-wire_api = "chat"
+wire_api = "responses"
 requires_openai_auth = false
 request_max_retries = 4
 stream_max_retries = 10

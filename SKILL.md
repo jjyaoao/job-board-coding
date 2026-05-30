@@ -40,6 +40,8 @@ If the user asks for the reusable prompt rather than implementation, read `refer
 
 For the commercial demo, the important proof is that Codex CLI or another coding agent is configured to use StepFun `step-3.7-flash` as the coding model. The generated job-board app itself does not need to call StepFun API unless the user specifically asks for an AI feature inside the app.
 
+Recent Codex CLI versions require custom providers to use `wire_api = "responses"` and reject `wire_api = "chat"`. If StepFun is only available through Chat Completions in the user's account, use a Responses-to-Chat bridge or another coding agent integration that supports the StepFun protocol directly.
+
 Never write API keys into files, screenshots, README, logs, or generated code. Use environment variable names such as `STEPFUN_API_KEY`.
 
 ## UI Direction
@@ -75,4 +77,3 @@ Use measured language:
 
 - Say “first usable version”, “可运行初稿”, “减少从想法到初版的时间”
 - Avoid “替代程序员”, “一次完美上线”, “零 bug”, “不用懂代码”, “100% 正确”
-
