@@ -2,7 +2,7 @@
 
 Capture the process as evidence for a direction-3 Coding Agent demo.
 
-## Setup Evidence
+## Codex CLI Setup Evidence
 
 - Codex CLI version
 - `~/.codex/config.toml` StepFun provider/profile, with API key hidden
@@ -13,11 +13,25 @@ Capture the process as evidence for a direction-3 Coding Agent demo.
 codex --enable goals --profile step37 -C . -s workspace-write -a on-request --no-alt-screen
 ```
 
+## Claude Code Setup Evidence
+
+- Claude Code version or `/status`
+- CC Switch or Claude Code provider config, with API key hidden
+- `ANTHROPIC_BASE_URL` points to StepFun Step Plan
+- `ANTHROPIC_MODEL` uses the model supported by the current plan
+- `.skill-job-board-coding` cloned in the workspace
+- Launch command, for example:
+
+```powershell
+claude --permission-mode acceptEdits
+```
+
 ## Agent Process
 
 - The full goal prompt or its opening section
-- Codex planning the project structure
-- Codex creating/editing files
+- Agent reading `SKILL.md` and `references/goal-prompt.md`
+- Agent planning the project structure
+- Agent creating/editing files
 - Dependency installation approval if shown
 - Build command output
 - Any error and the follow-up fix if one occurs
@@ -39,4 +53,3 @@ Do not show:
 - API keys
 - Real private application data
 - Personal email, phone number, or resume content
-

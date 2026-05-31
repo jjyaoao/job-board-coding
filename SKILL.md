@@ -1,6 +1,6 @@
 ---
 name: job-board-coding
-description: Build and document a direction-3 Coding Agent demo for a practical job application tracking board. Use when Codex should use a StepFun/Step 3.7 Flash powered coding workflow to create, verify, or explain a React + TypeScript + Vite job-search kanban app with drag-and-drop stages, deadline reminders, localStorage persistence, README, screenshot evidence, or Xiaohongshu-ready process documentation.
+description: Build and document a direction-3 Coding Agent demo for a practical job application tracking board. Use when Codex should use a StepFun-powered coding workflow, or when another coding agent such as Claude Code should read this skill as a task protocol, to create, verify, or explain a React + TypeScript + Vite job-search kanban app with drag-and-drop stages, deadline reminders, localStorage persistence, README, screenshot evidence, or Xiaohongshu-ready process documentation.
 ---
 
 # Job Board Coding
@@ -38,7 +38,7 @@ If the user asks for the reusable prompt rather than implementation, read `refer
 
 ## StepFun / Step 3.7 Flash Framing
 
-For the commercial demo, the important proof is that Codex CLI or another coding agent is configured to use StepFun `step-3.7-flash` as the coding model. The generated job-board app itself does not need to call StepFun API unless the user specifically asks for an AI feature inside the app.
+For the commercial demo, the important proof is that Codex CLI or another coding agent such as Claude Code is configured to use StepFun as the coding model provider. The generated job-board app itself does not need to call StepFun API unless the user specifically asks for an AI feature inside the app.
 
 Recent Codex CLI versions require custom providers to use `wire_api = "responses"` and reject `wire_api = "chat"`. If StepFun is only available through Chat Completions in the user's account, use a Responses-to-Chat bridge or another coding agent integration that supports the StepFun protocol directly.
 

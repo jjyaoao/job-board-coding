@@ -1,7 +1,6 @@
 interface:
   display_name: "Job Board Coding"
-  short_description: "Build a practical job application kanban demo with Codex and Step 3.7 Flash."
+  short_description: "Build a practical job application kanban demo with Codex, Claude Code, and StepFun."
   default_prompt: "Use $job-board-coding to build and verify a runnable job application tracking board in the current workspace."
 policy:
   allow_implicit_invocation: true
-

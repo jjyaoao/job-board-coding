@@ -4,7 +4,7 @@
 
 Use a practical, student-friendly story:
 
-> 实习投递太多太乱，我让接入 Step 3.7 Flash 的 Codex CLI 从 0 做了一个求职进度看板。
+> 实习投递太多太乱，我让接入 StepFun 的 Coding Agent 从 0 做了一个求职进度看板。
 
 The story should emphasize a real engineering task and first-pass completion quality.
 
@@ -18,7 +18,7 @@ The story should emphasize a real engineering task and first-pass completion qua
 ## Post Structure
 
 1. Pain point: applications are scattered and easy to miss.
-2. Method: Codex CLI is configured to use StepFun `step-3.7-flash`.
+2. Method: Codex CLI or Claude Code is configured to use StepFun.
 3. Prompt: give it a complete product/engineering requirement.
 4. Process: show planning, file edits, dependency install, build.
 5. Result: a running kanban with drag, reminders, stats, and localStorage.
@@ -43,4 +43,3 @@ Avoid:
 - “100% 正确”
 - “几分钟做完商业级产品”
 - “所有项目都适用”
-

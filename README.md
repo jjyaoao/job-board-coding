@@ -1,6 +1,11 @@
 # job-board-coding
 
-Codex skill for running a practical Coding Agent demo: use Codex CLI with StepFun `step-3.7-flash` to build a runnable job application progress board.
+Coding Agent demo protocol for building a practical job application progress board.
+
+This repository works in two modes:
+
+- **Codex CLI**: install it as a Codex skill.
+- **Claude Code**: clone it into the project workspace and ask Claude Code to read `SKILL.md` plus the reference prompts.
 
 The demo is designed for a direction-3 coding-agent case: a real, useful frontend project rather than a toy snippet. It focuses on first-pass engineering completion quality: planning, file creation, build verification, README, and a screenshot-friendly final app.
 
@@ -20,7 +25,9 @@ Core features:
 - React + TypeScript + Vite
 - README and build verification
 
-## Install The Skill
+## Option A: Use With Codex CLI
+
+### Install The Skill
 
 Clone this repository into your Codex skills folder:
 
@@ -36,7 +43,7 @@ cd $env:USERPROFILE\.codex\skills\job-board-coding
 git pull
 ```
 
-## Configure StepFun For Codex CLI
+### Configure StepFun For Codex CLI
 
 Important: recent Codex CLI versions no longer support `wire_api = "chat"`. They require `wire_api = "responses"` for custom providers. StepFun `step-3.7-flash` quickstart uses the Chat Completions endpoint, so direct Codex CLI integration may require either:
 
@@ -89,7 +96,7 @@ setx STEPFUN_API_KEY "your-stepfun-api-key"
 
 Then restart the terminal.
 
-## Run The Demo
+### Run The Demo With Codex
 
 Create a clean workspace:
 
@@ -115,17 +122,52 @@ Please follow the skill workflow: plan the structure, create the project files, 
 
 For the full prompt, see [`references/goal-prompt.md`](references/goal-prompt.md).
 
+## Option B: Use With Claude Code
+
+Claude Code does not automatically load Codex skills. Use this repository as a task protocol: clone it into the project workspace and ask Claude Code to read the skill files before implementation.
+
+Create a clean workspace:
+
+```powershell
+mkdir job-board-claude-run
+cd job-board-claude-run
+git init
+git clone https://github.com/jjyaoao/job-board-coding.git .skill-job-board-coding
+```
+
+Start Claude Code in a supervised mode:
+
+```powershell
+claude --permission-mode acceptEdits
+```
+
+Then paste the Claude-specific prompt from [`references/claude-code-prompt.md`](references/claude-code-prompt.md).
+
+If you intentionally want a less supervised one-shot run, use Claude Code's bypass mode only inside a clean throwaway workspace:
+
+```powershell
+claude --dangerously-skip-permissions
+```
+
+Recommended StepFun environment variables for Claude Code / Step Plan:
+
+```powershell
+$env:ANTHROPIC_BASE_URL="https://api.stepfun.ai/step_plan"
+$env:ANTHROPIC_AUTH_TOKEN="your-stepfun-api-key"
+$env:ANTHROPIC_MODEL="step-3.5-flash"
+```
+
+Use the StepFun model that your Step Plan subscription supports.
+
 ## Evidence To Capture
 
 Recommended screenshots:
 
-- Codex CLI version
-- StepFun provider/profile in `~/.codex/config.toml`, with API key hidden
-- `STEPFUN_API_KEY` is set, without printing the value
-- `$job-board-coding` skill installed
-- Codex launch command with `--enable goals --profile step37`
+- Coding agent setup: Codex profile or Claude Code provider, with API key hidden
+- StepFun model/base URL status
+- `$job-board-coding` installed or `.skill-job-board-coding` cloned
 - Goal prompt submitted
-- Codex planning and editing files
+- Agent planning and editing files
 - Dependency install and build verification
 - Final running job board
 - README and project file tree
@@ -159,6 +201,7 @@ See [`references/xhs-content-brief.md`](references/xhs-content-brief.md).
 +-- agents/
 |   +-- openai.yaml
 +-- references/
+    +-- claude-code-prompt.md
     +-- goal-prompt.md
     +-- screenshot-checklist.md
     +-- xhs-content-brief.md

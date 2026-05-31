@@ -1,6 +1,6 @@
 # Goal Prompt
 
-Use this prompt in Codex CLI after configuring the profile to use StepFun `step-3.7-flash`.
+Use this prompt in Codex CLI after configuring the profile to use StepFun. For Claude Code, use `references/claude-code-prompt.md`, which instructs Claude Code to read this file and `SKILL.md` first.
 
 ```text
 目标：请从 0 到 1 完成一个可运行的「求职申请进度管理看板」项目，并持续执行到项目能够本地启动、构建通过、README 完整。
@@ -83,4 +83,3 @@ Use this prompt in Codex CLI after configuring the profile to use StepFun `step-
 
 请不要只给代码片段，要直接在当前目录完成整个项目。
 ```
-
